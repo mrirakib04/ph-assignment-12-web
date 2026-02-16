@@ -39,10 +39,7 @@ export async function GET(request) {
     const skip = (page - 1) * limit;
 
     // db to api
-    const services = await Service.find(query)
-      .skip(skip)
-      .limit(limit)
-      .sort({ createdAt: -1 }); // new first
+    const services = await Service.find(query).skip(skip).limit(limit);
 
     // Total pages
     const totalServices = await Service.countDocuments(query);
