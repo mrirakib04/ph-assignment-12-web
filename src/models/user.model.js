@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import bcrypt from "bcryptjs"; // নিশ্চিত হোন যে আপনি bcryptjs ইনস্টল করেছেন
+import bcrypt from "bcryptjs"; // bcryptjs
 
 const userSchema = new mongoose.Schema(
   {
@@ -34,19 +34,19 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-// Password hashing middleware - next আর্গুমেন্ট বাদ দেওয়া হয়েছে
+// Password hashing middleware - next
 userSchema.pre("save", async function () {
-  // যদি পাসওয়ার্ড পরিবর্তিত না হয়, তাহলে পাসওয়ার্ড হ্যাশ করার দরকার নেই
+  // don't need hashing, if password not changed
   if (!this.isModified("password")) {
     return;
   }
 
   try {
-    // পাসওয়ার্ড হ্যাশ করা
+    // hashing password
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
   } catch (error) {
-    // এরর হলে throw করুন, Mongoose এটি হ্যান্ডেল করবে
+    // error handler
     throw new Error(error);
   }
 });
