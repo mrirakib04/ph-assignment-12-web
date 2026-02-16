@@ -124,7 +124,7 @@ const LoginForm = () => {
           </div>
 
           {/* Google Login */}
-          <button
+          {/* <button
             onClick={() => signIn("google", { callbackUrl: "/" })}
             className="flex items-center justify-center gap-3 w-full py-3 bg-white/5 hover:bg-white/10 border border-blue-900/30 rounded-xl transition-all group"
           >
@@ -132,7 +132,7 @@ const LoginForm = () => {
             <span className="text-sm font-semibold text-slate-200">
               Google Account
             </span>
-          </button>
+          </button> */}
 
           {/* Quick Access */}
           <div className="grid grid-cols-2 gap-3 mt-2">
