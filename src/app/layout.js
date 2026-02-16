@@ -27,6 +27,7 @@ export default function RootLayout({ children }) {
       >
         <Providers>
           <Navbar></Navbar>
+          <div className="py-8"></div>
           {children}
           <Footer></Footer>
         </Providers>
