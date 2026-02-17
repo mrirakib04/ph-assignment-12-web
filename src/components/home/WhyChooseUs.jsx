@@ -40,7 +40,7 @@ const WhyChooseUs = () => {
           <h2 className="text-sm font-semibold text-blue-400 uppercase tracking-widest mb-2">
             Our Promise
           </h2>
-          <p className="text-4xl font-bold text-white">
+          <p className="text-3xl md:text-4xl font-bold text-white">
             Why Choose Our Services?
           </p>
           <p className="text-slate-400 mt-4 max-w-2xl mx-auto">

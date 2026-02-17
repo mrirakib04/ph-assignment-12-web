@@ -30,7 +30,9 @@ const HowItWorks = () => {
           <h2 className="text-sm font-semibold text-blue-400 uppercase tracking-widest mb-2">
             Simple Process
           </h2>
-          <p className="text-4xl font-bold text-white">How It Works</p>
+          <p className="text-3xl md:text-4xl font-bold text-white">
+            How It Works
+          </p>
           <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
             Booking professional care is now easier than ever. Follow these
             simple steps to get started.

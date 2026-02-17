@@ -50,7 +50,9 @@ const FeaturedServices = () => {
               <h2 className="text-sm font-semibold text-blue-400 uppercase tracking-widest mb-2">
                 Top Rated
               </h2>
-              <p className="text-4xl font-bold text-white">Featured Services</p>
+              <p className="text-3xl md:text-4xl font-bold text-white">
+                Featured Services
+              </p>
             </div>
             <Link href="/services">
               <button className="bg-slate-800 cursor-pointer hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300">

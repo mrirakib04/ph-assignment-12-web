@@ -36,7 +36,9 @@ const TestimonialSection = () => {
           <h2 className="text-sm font-semibold text-blue-400 uppercase tracking-widest mb-2">
             Testimonials
           </h2>
-          <p className="text-4xl font-bold text-white">What Our Clients Say</p>
+          <p className="text-3xl md:text-4xl font-bold text-white">
+            What Our Clients Say
+          </p>
           <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
             Don't take our word for it. Hear what families have to say about
             their experience with our services.

@@ -45,7 +45,9 @@ const ServiceCategory = () => {
           <h2 className="text-sm font-semibold text-blue-400 uppercase tracking-widest mb-2">
             What We Offer
           </h2>
-          <p className="text-4xl font-bold text-white">Our Care Services</p>
+          <p className="text-3xl md:text-4xl font-bold text-white">
+            Our Care Services
+          </p>
           <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
             We provide a wide range of specialized services tailored to meet
             your unique needs with care and professionalism.
