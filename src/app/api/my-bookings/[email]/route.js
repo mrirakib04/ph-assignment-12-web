@@ -4,7 +4,7 @@ import Booking from "@/models/book.model";
 
 export async function GET(request, { params }) {
   try {
-    const { email } = params;
+    const { email } = await params;
     await connectDB();
 
     const { searchParams } = new URL(request.url);

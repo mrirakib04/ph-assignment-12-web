@@ -69,6 +69,10 @@ const serviceSchema = new mongoose.Schema(
       type: String, // "Popular", "New", "Top Rated"
       default: "Professional",
     },
+    serviceBy: {
+      type: String, // mail
+      default: "",
+    },
   },
   {
     timestamps: true, // createdAt and updatedAt

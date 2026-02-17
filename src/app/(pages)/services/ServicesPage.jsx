@@ -12,7 +12,6 @@ const ServicesPage = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  // API থেকে ডাটা ফেচ করা
   const fetchServices = async () => {
     setLoading(true);
     try {
@@ -35,13 +34,13 @@ const ServicesPage = () => {
 
   useEffect(() => {
     fetchServices();
-  }, [category, page]); // সার্চের জন্য আলাদা বাটন বা এন্টার হ্যান্ডলার ব্যবহার করা ভালো
+  }, [category, page]);
 
   return (
     <div className="min-h-screen w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-slate-200">
       {/* Header Section */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-white mb-4">
+        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Our Care Services
         </h1>
         <p className="text-slate-400 max-w-2xl mx-auto">

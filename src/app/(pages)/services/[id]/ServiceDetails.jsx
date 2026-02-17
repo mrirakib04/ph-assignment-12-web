@@ -83,7 +83,7 @@ const ServiceDetails = ({ id }) => {
           <span className="text-xs text-blue-400 font-semibold uppercase tracking-widest bg-blue-900/30 px-3 py-1 rounded-full">
             {service.category}
           </span>
-          <h1 className="text-4xl font-bold text-white mt-4 mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mt-4 mb-2">
             {service.title}
           </h1>
           <div className="flex items-center gap-4 text-sm text-slate-400">
