@@ -10,7 +10,7 @@ const ContactSupport = () => {
   };
 
   return (
-    <div className="bg-[#0f172a] py-20">
+    <div className="bg-[#0f172a] py-20 w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#030712] p-5 md:p-10 rounded-3xl border border-blue-900/30 shadow-2xl">
           {/* Left Side: Text and Info */}
