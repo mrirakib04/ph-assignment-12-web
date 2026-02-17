@@ -1,43 +1,47 @@
-// src/app/api/auth/[...nextauth]/route.js
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import connectMongoDB from "@/lib/mongodb";
 import User from "@/models/user.model";
-import bcrypt from "bcryptjs"; // Needs to be installed for password comparison
+import bcrypt from "bcryptjs";
 
 export const authOptions = {
   providers: [
+    // ১. Credentials Provider
     CredentialsProvider({
       name: "Credentials",
+      credentials: {
+        email: { label: "Email", type: "email" },
+        password: { label: "Password", type: "password" },
+      },
       async authorize(credentials) {
-        // 1. Connect to MongoDB
-        await connectMongoDB();
+        if (!credentials?.email || !credentials?.password) {
+          return null;
+        }
 
         try {
-          // 2. Find user by email
+          await connectMongoDB();
+
           const user = await User.findOne({ email: credentials.email });
 
-          if (!user) {
-            return null; // User not found
+          if (!user || !user.password) {
+            return null;
           }
 
-          // 3. Compare passwords using bcrypt
           const isPasswordValid = await bcrypt.compare(
             credentials.password,
             user.password
           );
 
           if (!isPasswordValid) {
-            return null; // Wrong password
+            return null;
           }
 
-          // 4. Return user object (excluding sensitive data)
           return {
             id: user._id.toString(),
             name: user.name,
             email: user.email,
-            role: user.role,
+            role: user.role || "user",
             image: user.image,
           };
         } catch (error) {
@@ -52,13 +56,38 @@ export const authOptions = {
     }),
   ],
 
-  session: { strategy: "jwt" },
+  session: {
+    strategy: "jwt",
+  },
 
   pages: {
     signIn: "/login",
+    error: "/login",
   },
 
   callbacks: {
+    async signIn({ user, account }) {
+      if (account.provider === "google") {
+        try {
+          await connectMongoDB();
+          const userExists = await User.findOne({ email: user.email });
+
+          if (!userExists) {
+            await User.create({
+              name: user.name,
+              email: user.email,
+              image: user.image,
+              role: "user",
+            });
+          }
+        } catch (error) {
+          console.error("Google Sign In Error:", error);
+          return false;
+        }
+      }
+      return true;
+    },
+
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;

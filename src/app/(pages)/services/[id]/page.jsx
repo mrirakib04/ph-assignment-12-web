@@ -9,11 +9,11 @@ export async function generateMetadata({ params }) {
   const service = await Service.findById(id);
 
   if (!service) {
-    return { title: "Service Not Found | Care.xyz" };
+    return { title: "Service Not Found | Care.io" };
   }
 
   return {
-    title: `${service.title} | ${service.category} | Care.xyz`,
+    title: `${service.title} | ${service.category} | Care.io`,
     description: service.shortDescription,
   };
 }
