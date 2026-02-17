@@ -8,7 +8,7 @@ import WhyChooseUs from "@/components/home/WhyChooseUs";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-full">
       <HeroSection></HeroSection>
       <ServiceCategory></ServiceCategory>
       <FeaturedServices></FeaturedServices>
