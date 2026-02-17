@@ -9,7 +9,7 @@ const Footer = () => {
         {/* Brand Section */}
         <div className="flex flex-col gap-4">
           <h2 className="text-3xl font-bold text-white tracking-tight">
-            Care<span className="text-blue-500">.xyz</span>
+            Care<span className="text-blue-500">.io</span>
           </h2>
           <p className="text-sm leading-relaxed text-slate-400">
             Providing professional care and support services tailored to your
@@ -126,7 +126,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center gap-3">
               <MdEmail className="text-blue-500 text-lg shrink-0" />
-              <span>support@care.xyz</span>
+              <span>support@care.io</span>
             </li>
           </ul>
         </div>
@@ -136,7 +136,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-blue-900/20 text-center">
         <p className="text-xs text-slate-500">
           © {new Date().getFullYear()}{" "}
-          <span className="font-semibold">Care.xyz</span>. All rights reserved.
+          <span className="font-semibold">Care.io</span>. All rights reserved.
           Developed with ❤️ by Rakib.
         </p>
       </div>

@@ -36,7 +36,7 @@ const Navbar = () => {
           <Link href="/" className="flex items-center gap-2 group">
             <FaHeartbeat className="text-3xl text-blue-500 group-hover:scale-110 transition-transform" />
             <span className="text-2xl font-sans font-bold tracking-tight text-white">
-              Care<span className="text-blue-500">.xyz</span>
+              Care<span className="text-blue-500">.io</span>
             </span>
           </Link>
 

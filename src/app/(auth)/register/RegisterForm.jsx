@@ -92,7 +92,7 @@ const RegisterForm = () => {
             Create Account
           </h3>
           <p className="text-sm text-slate-400">
-            Join Care.xyz to manage your professional services
+            Join Care.io to manage your professional services
           </p>
         </div>
 

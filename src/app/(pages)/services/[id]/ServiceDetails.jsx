@@ -14,13 +14,12 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
 const ServiceDetails = ({ id }) => {
-  const { data: session } = useSession(); // লগইন স্ট্যাটাস চেক
+  const { data: session } = useSession();
   const router = useRouter();
 
-  // হ্যান্ডেল বুকিং ক্লিক
   const handleBookingClick = (e) => {
     if (!session) {
-      e.preventDefault(); // লিঙ্কে যাওয়া বন্ধ করবে
+      e.preventDefault();
       toast.error("Please login first to book a service!");
       router.push("/login");
     }

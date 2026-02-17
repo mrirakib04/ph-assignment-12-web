@@ -33,7 +33,7 @@ const LoginForm = () => {
     });
 
     if (res?.ok) {
-      toast.success("Welcome back to Care.xyz!", {
+      toast.success("Welcome back to Care.io!", {
         position: "top-right",
         theme: "dark",
       });
