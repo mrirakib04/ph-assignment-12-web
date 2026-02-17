@@ -1,13 +1,13 @@
 import { NextResponse } from "next/server";
-import connectDB from "@/lib/mongodb";
+import connectMongoDB from "@/lib/mongodb";
 import Service from "@/models/service.model";
 
 export async function GET(request, { params }) {
   try {
-    await connectDB();
+    await connectMongoDB();
 
     // Service ID
-    const { id } = params;
+    const { id } = await params;
 
     const service = await Service.findById(id);
 
