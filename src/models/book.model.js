@@ -26,7 +26,6 @@ const bookSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
-    // সম্পূর্ণ সার্ভিস ডাটা অবজেক্ট আকারে
     serviceInfo: {
       serviceId: {
         type: mongoose.Schema.Types.ObjectId,

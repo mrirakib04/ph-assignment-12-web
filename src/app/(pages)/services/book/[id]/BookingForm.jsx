@@ -17,7 +17,6 @@ const BookingForm = ({ id }) => {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
 
-  // সার্ভিস ডাটা ফেচ করা
   useEffect(() => {
     const fetchService = async () => {
       try {
@@ -38,15 +37,14 @@ const BookingForm = ({ id }) => {
 
     const formData = new FormData(e.target);
     const bookingDetails = {
-      // ইউজার ইনফো
       bookedBy: session?.user?.email,
       userName: session?.user?.name,
-      // ফর্ম ইনফো
+
       phone: formData.get("phone"),
       address: formData.get("address"),
       date: formData.get("date"),
       instruction: formData.get("instruction"),
-      // সার্ভিস ইনফো (সম্পূর্ণ অবজেক্ট)
+
       serviceInfo: {
         serviceId: service._id,
         title: service.title,
@@ -59,7 +57,6 @@ const BookingForm = ({ id }) => {
     };
 
     try {
-      // আপনার বুকিং এপিআই রাউট এখানে হবে (যেমন: /api/bookings)
       const res = await axios.post("/api/services/book", bookingDetails);
       if (res.status === 200 || res.status === 201) {
         toast.success("Booking successful! We will contact you soon.");

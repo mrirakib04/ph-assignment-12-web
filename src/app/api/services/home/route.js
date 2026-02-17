@@ -6,7 +6,7 @@ export async function GET() {
   try {
     await connectDB();
 
-    const services = await Service.find({}).sort({ createdAt: -1 }).limit(8);
+    const services = await Service.find({}).sort({ createdAt: -1 }).limit(6);
 
     return NextResponse.json(
       {
