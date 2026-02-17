@@ -7,20 +7,28 @@ import { authOptions } from "../../auth/[...nextauth]/route";
 export async function POST(request) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session) {
-      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
-    }
+    // if (!session) {
+    //   return NextResponse.json(
+    //     { message: "You must be logged in to book a service." },
+    //     { status: 401 }
+    //   );
+    // }
 
     await connectDB();
     const body = await request.json();
 
-    const newBooking = await Booking.create(body);
+    const bookingData = {
+      ...body,
+    };
+
+    const newBooking = await Booking.create(bookingData);
 
     return NextResponse.json(
       { success: true, message: "Booking Confirmed!", data: newBooking },
       { status: 201 }
     );
   } catch (error) {
+    console.error("Booking Error:", error);
     return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }
