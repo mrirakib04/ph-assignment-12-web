@@ -66,40 +66,23 @@ export const authOptions = {
   },
 
   callbacks: {
-    async signIn({ user, account }) {
-      if (account.provider === "google") {
-        try {
-          await connectMongoDB();
-          const userExists = await User.findOne({ email: user.email });
-
-          if (!userExists) {
-            await User.create({
-              name: user.name,
-              email: user.email,
-              image: user.image,
-              role: "user",
-            });
-          }
-        } catch (error) {
-          console.error("Google Sign In Error:", error);
-          return false;
-        }
+    async jwt({ token, user, trigger, session }) {
+      if (trigger === "update" && session) {
+        token.name = session.user.name;
+        token.picture = session.user.image;
       }
-      return true;
-    },
 
-    async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
-        token.role = user.role;
+        token.name = user.name;
+        token.picture = user.image;
       }
       return token;
     },
-
     async session({ session, token }) {
-      if (session.user) {
-        session.user.id = token.id;
-        session.user.role = token.role;
+      if (token) {
+        session.user.name = token.name;
+        session.user.image = token.picture;
       }
       return session;
     },

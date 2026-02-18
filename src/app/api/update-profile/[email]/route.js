@@ -9,24 +9,25 @@ export async function PATCH(request, { params }) {
 
     await connectMongoDB();
 
-    const updatedUser = await User.findOneAndUpdate(
-      { email },
-      { name, image },
-      { new: true, runValidators: true }
-    );
+    const user = await User.findOne({ email });
 
-    if (!updatedUser) {
+    if (!user) {
       return NextResponse.json({ message: "User not found" }, { status: 404 });
     }
+
+    if (name) user.name = name;
+    if (image) user.image = image;
+
+    await user.save();
 
     return NextResponse.json(
       {
         success: true,
         message: "Profile updated successfully!",
         user: {
-          name: updatedUser.name,
-          email: updatedUser.email,
-          image: updatedUser.image,
+          name: user.name,
+          email: user.email,
+          image: user.image,
         },
       },
       { status: 200 }
