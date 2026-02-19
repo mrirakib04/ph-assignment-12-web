@@ -17,24 +17,28 @@ const Footer = () => {
           </p>
           <div className="flex items-center gap-4 mt-2">
             <a
+              target="_blank"
               href="https://www.facebook.com/MRI.Rakib04"
               className="hover:text-blue-400 transition-colors text-xl"
             >
               <FaFacebook />
             </a>
             <a
+              target="_blank"
               href="https://x.com/mrirakib04"
               className="hover:text-blue-400 transition-colors text-xl"
             >
               <FaTwitter />
             </a>
             <a
+              target="_blank"
               href="https://www.linkedin.com/in/webdev-rakib"
               className="hover:text-blue-400 transition-colors text-xl"
             >
               <FaLinkedin />
             </a>
             <a
+              target="_blank"
               href="https://www.instagram.com/mrirakib04"
               className="hover:text-blue-400 transition-colors text-xl"
             >
