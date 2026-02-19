@@ -45,11 +45,11 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#030712] text-white py-16 px-4">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-[#030712] text-white py-16">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-linear-to-r from-blue-400 to-indigo-600">
+          <h1 className="text-3xl md:text-4xl font-extrabold mb-4 bg-clip-text text-transparent bg-linear-to-r from-blue-400 to-indigo-600">
             About Care.io
           </h1>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
